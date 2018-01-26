@@ -10,7 +10,7 @@ def amount_validation(form, field):
     except ValueError:
         raise ValidationError('Invalid amount value')
 
-    if int(field.data) < 0:
+    if int(field.data) <= 0:
         raise ValidationError('Donation amount must be greater than $0')
 
 class DonationAmountForm(FlaskForm):
