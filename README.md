@@ -7,8 +7,7 @@ To run locally, you can clone this repository and then follow these steps:
 
 1. With Python and `pip` installed, run `pip install -r requirements.txt`. This will install the packages required to run the Python backend.
 2. Create a virtual environment by running `python -m venv venv`. If you're running a Python version older than 3.4, you might need to run `virtualenv venv` with `virutalenv` installed.
-3a. If you're running a Linux machine, run `source venv/bin/activate` to start the virtual environment. Then run `export FLASK_APP=giving.py`.
-3b. If you're on a Windows machine, run `venv\Scripts\activate` to start the virtual environment. Then run `set FLASK_APP = "giving.py"`. If this doesn't work, you might need to run `$env:FLASK_APP = "giving.py"`.
+3. If you're running a Linux machine, run `source venv/bin/activate` to start the virtual environment. Then run `export FLASK_APP=giving.py`. If you're on a Windows machine, run `venv\Scripts\activate` to start the virtual environment. Then run `set FLASK_APP = "giving.py"`. If this doesn't work, you might need to run `$env:FLASK_APP = "giving.py"`.
 4. Run `flask run`. The app should be accessible at `localhost:5000`.
 
 You can also access the heroku app at: https://dkfann-funraise.herokuapp.com/
