@@ -1,0 +1,54 @@
+{% macro giving_form(recipient, options) %}
+<form id="payment-form" action="/" method="post" data-recipient="{{recipient}}">
+    {{ form.hidden_tag() }}
+    <input id="stripe-key" type="hidden" data-key="{{key}}">
+    <div class="o-giving-form-container">
+        <div class="o-giving-form__header">
+            <div class="o-giving-form__title">Your Donation to {{recipient}}</div>
+            <div id="js-donation-amount-display" class="o-giving-form__donation-amount"></div>
+        </div>
+        <div class="o-giving-form__body">
+            <div class="o-giving-form__section">
+                <div class="o-giving-form__name">
+                    <div class="o-giving-form__title">Name</div>
+                    {{ form.name(class_="o-giving-form__custom-donation-input o-donation-input") }}
+                    {% for error in form.name.errors %}
+                        <div class="o-giving-form__error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="o-giving-form__email">
+                    <div class="o-giving-form__title">Email</div>
+                    {{ form.email(class_="o-giving-form__custom-donation-input o-donation-input") }}
+                    {% for error in form.email.errors %}
+                        <div class="o-giving-form__error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="o-giving-form__section">
+                <div class="o-giving-form__title">Select donation amount</div>
+                <div id="js-donation-options" class="o-giving-form__donation-options">
+                    {% for option in options %}
+                        <div class="o-giving-form__donation-option js-donation-option" data-amount={{option.amountInCents}}>{{option.amountInDollars}}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="o-giving-form__section">
+                <div class="o-giving-form__custom-donation">
+                    <div class="o-giving-form__title">Or Enter A Custom Amount</div>
+                    {{ form.custom_amount(class_="o-giving-form__custom-donation-input o-donation-input") }}
+                    {% for error in form.custom_amount.errors %}
+                        <div class="o-giving-form__error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="o-giving-form__footer">
+            <div class="o-giving-form__section">
+                <div id="card-element" class="o-donation-input"></div>
+                <div id="card-errors" class="o-giving-form__error" role="alert"></div>
+                <button class="o-giving-form__submit-button">Submit Payment</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endmacro %}

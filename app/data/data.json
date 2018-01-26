@@ -1,0 +1,26 @@
+{
+    "donation_data": [
+        {
+            "recipient": "dfann",
+            "donation_options": [
+                {
+                    "amountInCents": 5000,
+                    "amountInDollars": "$50.00"
+                },
+                {
+                    "amountInCents": 10000,
+                    "amountInDollars": "$100.00",
+                    "isDefault": 1
+                },
+                {
+                    "amountInCents": 20000,
+                    "amountInDollars": "$200.00"
+                },
+                {
+                    "amountInCents": 60000,
+                    "amountInDollars": "$600.00"
+                }
+            ]
+        }
+    ]
+}

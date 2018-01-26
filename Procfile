@@ -1,0 +1,1 @@
+web: gunicorn giving:app --log-file=-

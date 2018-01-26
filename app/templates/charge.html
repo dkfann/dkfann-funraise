@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="o-charge-container">
+        <div class="o-charge__title">Thanks {{ name }}!</div>
+        <div class="o-charge__amount-and-recipient">You just donated {{ amount }} to {{ recipient }}</div>
+        <a href="/">Click here to make another donation.</a>
+    </div>
+{% endblock %}
