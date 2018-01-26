@@ -4,7 +4,6 @@ from wtforms.fields.html5 import EmailField
 from wtforms.validators import NumberRange, DataRequired, Email, Optional, ValidationError
 
 def amount_validation(form, field):
-    print('in amount validation')
     try:
         int(field.data)
     except ValueError:
