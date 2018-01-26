@@ -8,16 +8,26 @@ document.addEventListener("DOMContentLoaded", function () {
     var tokenIdField = document.getElementById('token_id');
     var donationOptions = document.querySelectorAll('.js-donation-option');
     var customAmountField = document.getElementById('custom_amount');
+    var customDonationsSection = document.getElementById('js-custom-donations');
     var recipientField = document.getElementById('recipient');
     var stripeKeyField = document.getElementById('stripe-key');
 
     recipientField.value = paymentForm.getAttribute('data-recipient');
     var donationAmountDisplay = document.getElementById('js-donation-amount-display');
 
+    prepareAmountFieldIfError();
     setupStripe();
     bindDonationAmountDisplay();
     bindDonationOptions();
     bindCustomAmountField();
+
+    function prepareAmountFieldIfError() {
+        // If an error element was fouund in the donation section, the amount field will
+        // be invalid. Set it to 0  initially.
+        if (customDonationsSection.querySelectorAll('.o-giving-form__error').length) {
+            donationAmountField.value = 0;
+        }
+    }
 
     function setupStripe() {
         var _base;
@@ -97,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function setDonationAmountField(amount, convert) {
-        donationAmountField.value = convert ? amount * 100 : amount;
+        donationAmountField.value = convert ? (amount * 100).toFixed(0) : amount.toFixed(2);
     }
 
     function bindDonationOptions() {

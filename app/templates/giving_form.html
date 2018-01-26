@@ -33,10 +33,13 @@
                 </div>
             </div>
             <div class="o-giving-form__section">
-                <div class="o-giving-form__custom-donation">
+                <div id="js-custom-donations" class="o-giving-form__custom-donation">
                     <div class="o-giving-form__title">Or Enter A Custom Amount</div>
                     {{ form.custom_amount(class_="o-giving-form__custom-donation-input o-donation-input") }}
                     {% for error in form.custom_amount.errors %}
+                        <div class="o-giving-form__error">{{ error }}</div>
+                    {% endfor %}
+                    {% for error in form.amount.errors %}
                         <div class="o-giving-form__error">{{ error }}</div>
                     {% endfor %}
                 </div>
